@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Maritime Command Palette — Light Mode */
+    --background: 0.975 0.004 240;
+    --foreground: 0.17 0.025 255;
+
+    --card: 1 0 0;
+    --card-foreground: 0.17 0.025 255;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.17 0.025 255;
+
+    /* Deep navy primary */
+    --primary: 0.265 0.05 255;
+    --primary-foreground: 0.985 0.004 240;
+
+    /* Steel blue secondary */
+    --secondary: 0.93 0.015 240;
+    --secondary-foreground: 0.265 0.05 255;
+
+    --muted: 0.94 0.01 240;
+    --muted-foreground: 0.52 0.025 255;
+
+    /* Ocean teal accent */
+    --accent: 0.55 0.13 205;
+    --accent-foreground: 0.985 0 0;
+
+    --destructive: 0.55 0.2 25;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.87 0.015 240;
+    --input: 0.87 0.015 240;
+    --ring: 0.55 0.13 205;
+
+    --radius: 0.5rem;
+
+    /* Compliance colors */
+    --success: 0.55 0.15 145;
+    --success-bg: 0.97 0.04 145;
+    --success-fg: 0.32 0.1 145;
+
+    --danger: 0.55 0.2 25;
+    --danger-bg: 0.97 0.04 25;
+    --danger-fg: 0.38 0.15 25;
+
+    --warning: 0.72 0.16 65;
+    --warning-bg: 0.97 0.04 90;
+    --warning-fg: 0.42 0.12 55;
+
+    /* Chart colors */
+    --chart-1: 0.55 0.13 205;
+    --chart-2: 0.62 0.18 145;
+    --chart-3: 0.55 0.2 25;
+    --chart-4: 0.72 0.14 65;
+    --chart-5: 0.52 0.12 280;
+
+    /* Sidebar */
+    --sidebar: 0.21 0.045 255;
+    --sidebar-foreground: 0.88 0.02 240;
+    --sidebar-primary: 0.55 0.13 205;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.28 0.05 255;
+    --sidebar-accent-foreground: 0.88 0.02 240;
+    --sidebar-border: 0.3 0.05 255;
+    --sidebar-ring: 0.55 0.13 205;
+  }
+
+  .dark {
+    --background: 0.14 0.035 255;
+    --foreground: 0.92 0.01 240;
+
+    --card: 0.18 0.04 255;
+    --card-foreground: 0.92 0.01 240;
+
+    --popover: 0.18 0.04 255;
+    --popover-foreground: 0.92 0.01 240;
+
+    --primary: 0.55 0.13 205;
+    --primary-foreground: 0.14 0.035 255;
+
+    --secondary: 0.24 0.05 255;
+    --secondary-foreground: 0.92 0.01 240;
+
+    --muted: 0.22 0.04 255;
+    --muted-foreground: 0.62 0.025 255;
+
+    --accent: 0.55 0.13 205;
+    --accent-foreground: 0.14 0.035 255;
+
+    --destructive: 0.55 0.2 25;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.26 0.05 255;
+    --input: 0.26 0.05 255;
+    --ring: 0.55 0.13 205;
+
+    --chart-1: 0.65 0.15 205;
+    --chart-2: 0.68 0.2 145;
+    --chart-3: 0.62 0.22 25;
+    --chart-4: 0.78 0.16 65;
+    --chart-5: 0.62 0.14 280;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+
+  code,
+  pre,
+  .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+}
+
+@layer utilities {
+  .text-success {
+    color: oklch(var(--success-fg));
+  }
+  .bg-success {
+    background-color: oklch(var(--success-bg));
+  }
+  .text-danger {
+    color: oklch(var(--danger-fg));
+  }
+  .bg-danger {
+    background-color: oklch(var(--danger-bg));
+  }
+  .border-success {
+    border-color: oklch(var(--success));
+  }
+  .border-danger {
+    border-color: oklch(var(--danger));
+  }
+
+  /* Maritime nautical grid background */
+  .nautical-bg {
+    background-image: linear-gradient(
+        oklch(0.87 0.015 240 / 0.4) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, oklch(0.87 0.015 240 / 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .compliance-glow-success {
+    box-shadow: 0 0 0 1px oklch(var(--success) / 0.3), 0 2px 8px
+      oklch(var(--success) / 0.1);
+  }
+
+  .compliance-glow-danger {
+    box-shadow: 0 0 0 1px oklch(var(--danger) / 0.3), 0 2px 8px
+      oklch(var(--danger) / 0.1);
+  }
+}
